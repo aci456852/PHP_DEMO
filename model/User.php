@@ -1,26 +1,20 @@
 <?php
-class User
-{
-	private $pdo;
-	public function __construct() {
-        $this->pdo = new PDO("mysql:host=127.0.0.1;dbname=class", "root", "123456");
-    }
+
+include('model/Model.php');
+
+class User extends Model {
     
-    public function __destruct() {
-        $this->pdo = null;
-    }
-    public function verify($userID,$password)
+    public function verify($userId, $password)
     {
-    	$statment = $this->pdo->prepare("select * from users where id=?");
-        $statment->execute([$userID]);
+        $statment = $this->pdo->prepare("select * from users where id = ?");
+        $statment->execute([$userId]);
         $user = $statment->fetch();
-        if($user['id']==$userID&&$user['password']==$password)
-        {
+
+        if ($user['id'] == $userId && $user['password'] == $password) {
             return $user;
-        }
-        else 
-        {
+        } else {
             return false;
         }
     }
+
 }

@@ -32,11 +32,11 @@
     <link href="/css/signin.css" rel="stylesheet">
   </head>
   <body class="text-center">
-    <form class="form-signin" action="index.php?r=login/do_login" method="post">
+    <form class="form-signin" action="index.php?r=Login/do_login" method="post">
       <img class="mb-4" src="/images/logo.jpg" alt="" width="100" height="100">
       <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
       <label for="inputEmail" class="sr-only">userID</label>
-      <input name="userID" type="text" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+      <input name="userId" type="text" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
       <label for="inputPassword" class="sr-only">Password</label>
       <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
       <div class="checkbox mb-3">

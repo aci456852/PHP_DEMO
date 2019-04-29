@@ -34,4 +34,4 @@ create table assignments_records(
 	score float
 );
 insert into users(id,name,password,role) values('1629220003',
-	'1629220003','aci456852','teacher');
+	'1629220003','aci456852','Teacher');
