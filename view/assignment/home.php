@@ -33,26 +33,32 @@
 
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
       
-      <h2>班级列表</h2>
+      <h2>作业列表</h2>
+      <div>
+        <a href="/index.php?r=assignment/create_assignment_form&course_id=<?php echo $courseId;?>">
+          <button class="btn btn-primary">新建作业</button>
+        </a>
+      </div>
       <div class="table-responsive">
         <table class="table table-striped table-sm">
           <thead>
             <tr>
               <th>#</th>
-              <th>课号</th>
-              <th>名称</th>
+              <th>标题</th>
+              <th>创建时间</th>
               <th></th>
             </tr>
           </thead>
           <tbody>
-            <?php foreach ($courses as $value): ?>
+          <?php foreach ($assignments as $assignment): ?>
             <tr>
-              <td><?php echo $value['id'];?></td>
-              <td><?php echo $value['subject_no'];?></td>
-              <td><?php echo $value['subject'];?></td>
-              <td><a href="/index.php?r=assignment/home&course_id=<?php echo $value['id'];?>">作业管理</a></td>
+              <td><?php echo $assignment['id'];?></td>
+              <td><?php echo $assignment['title'];?></td>
+              <td><?php echo $assignment['created_at'];?></td>
+              <td><?php echo $assignment['id'];?>下载模版</td>
             </tr>
-            <?php endforeach; ?>
+      
+          <?php endforeach;?>
             
           </tbody>
         </table>

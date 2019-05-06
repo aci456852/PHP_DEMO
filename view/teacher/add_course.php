@@ -50,4 +50,4 @@
 </div>
 
 
-<?php include('view/layout/footer.php');?>
+<?php include('view/layout/footer.php');

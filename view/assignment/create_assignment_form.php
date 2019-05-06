@@ -33,30 +33,20 @@
 
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
       
-      <h2>班级列表</h2>
-      <div class="table-responsive">
-        <table class="table table-striped table-sm">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>课号</th>
-              <th>名称</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php foreach ($courses as $value): ?>
-            <tr>
-              <td><?php echo $value['id'];?></td>
-              <td><?php echo $value['subject_no'];?></td>
-              <td><?php echo $value['subject'];?></td>
-              <td><a href="/index.php?r=assignment/home&course_id=<?php echo $value['id'];?>">作业管理</a></td>
-            </tr>
-            <?php endforeach; ?>
-            
-          </tbody>
-        </table>
-      </div>
+      <h2>新建作业</h2>
+      
+      <form action='/index.php?r=assignment/do_create_assignment' method="post" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="exampleInputEmail1">作业标题</label>
+          <input name="title" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlFile1">请选择实验报告模版</label>
+          <input type="file" name="template" class="form-control-file" id="exampleFormControlFile1">
+        </div>
+        <input type="hidden" name="course_id" value="<?php echo $courseId; ?> ">
+        <button type="submit" class="btn btn-primary">提交</button>
+      </form>
     </main>
   </div>
 </div>
