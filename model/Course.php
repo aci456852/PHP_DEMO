@@ -30,4 +30,18 @@ class Course extends Model {
         return $courses;
     }
 
+    public function findStudentCourse($studentId){
+        $sql="select c.*,u.name as student_name,ut.name as teacher_name 
+        from course_students cs 
+            join courses c on cs.course_id=c.id 
+            join users u on u.id=cs.student_id
+            join users ut on ut.id=c.teacher_id
+        where cs.student_id=? ";
+        $statment = $this->pdo->prepare($sql);
+        $statment->execute([$studentId]);
+        $courses = $statment->fetchAll();
+        return $courses;
+    }
+
+    
 }

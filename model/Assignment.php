@@ -31,4 +31,16 @@ class Assignment extends Model {
         $assignments = $statment->fetchAll();
         return $assignments;
     }
+
+    public function findstudentAssignment($studentId){
+        $sql="select a.*,ar.id as ar_id,ar.attachment as my_work
+        from assignments a
+            join course_students cs on cs.course_id=a.course_id 
+            left join assignment_records ar on ar.assignment_id=a.id and ar.student_id=cs.student_id
+        where cs.student_id =? ";
+        $statment = $this->pdo->prepare($sql);
+        $statment->execute([$studentId]);
+        $my_assignments = $statment->fetchAll();
+        return $my_assignments;
+    }
 }

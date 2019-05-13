@@ -2,6 +2,7 @@
 
 $route=isset($_GET['r'])?$_GET['r']:NULL;
 set_include_path(get_include_path().PATH_SEPARATOR.'../');
+session_start();
 if($route)
 {
 	$partials=explode("/", $route);
