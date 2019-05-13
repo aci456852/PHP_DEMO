@@ -16,7 +16,16 @@ class StudentController
 	{
 		$user=$_SESSION['user'];
 		$assignmentModel=new Assignment();
-		$my_assignment=$assignmentModel->findstudentAssignment($user['id']);
+		$my_assignments=$assignmentModel->findstudentAssignment($user['id']);
 		include ('view/student/my_assignment.php');
+	}
+	public function download_template() {
+		$assignmentId=$_REQUEST['id'];
+		$assignmentModel=new Assignment();
+		$my_assignment=$assignmentModel->getAssignment($assignmentId);
+		header("Content-Type:application/octet-stream");
+		header("Content-Disposition:attachment;filename=".$my_assignment['attachment']);
+		$templateContent = file_get_contents("../storage/uploads/template/" . $my_assignment['attachment']);
+		echo $templateContent;
 	}
 }

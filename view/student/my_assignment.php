@@ -41,11 +41,11 @@
             </tr>
           </thead>
           <tbody>
-            <?php foreach ($my_assignment as $value): ?>
+            <?php foreach ($my_assignments as $value): ?>
             <tr>
               <td><?php echo $value['id'];?></td>
               <td><?php echo $value['title'];?></td>
-              <td><a href="">下载</a></td>
+              <td><a href="/index.php?r=student/download_template&id=<?php echo $value['id'];?>">下载</a></td>
               <td><?php echo $value['created_at'];?></td>
               <td><a href="/index.php?r=student/my_assignment&course_id=<?php echo $value['id'];?>">上传作业</a></td>
             </tr>

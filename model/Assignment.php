@@ -28,8 +28,15 @@ class Assignment extends Model {
     public function find($courseId) {
         $statment = $this->pdo->prepare('select * from assignments where course_id = ? ');
         $statment->execute([$courseId]);
-        $assignments = $statment->fetchAll();
+        $assignments = $statment->fetch();
         return $assignments;
+    }
+
+    public function getAssignment($id) {
+        $statment = $this->pdo->prepare('select * from assignments where id = ? ');
+        $statment->execute([$id]);
+        $assignment = $statment->fetch();
+        return $assignment;
     }
 
     public function findstudentAssignment($studentId){

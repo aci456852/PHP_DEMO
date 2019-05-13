@@ -13,7 +13,7 @@ class TeacherController {
 		$user = $_SESSION['user'];
 		$courseModel = new Course();
 		$courses = $courseModel->find($user['id']);
-		var_export($user);
+		//var_export($user);
 		include('view/teacher/home.php');
 
 	}
